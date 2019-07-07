@@ -14,7 +14,7 @@ public class RemoveTest {
         Assert.assertTrue(phoneBook.hasEntry(phoneNumber));
 
         // when
-        phoneBook.remove(name);
+
 
         // then
         Assert.assertFalse(phoneBook.hasEntry(name));
@@ -30,7 +30,7 @@ public class RemoveTest {
         Assert.assertTrue(phoneBook.hasEntry(phoneNumber));
 
         // when
-        phoneBook.remove(name);
+        //phoneBook.remove(name);
 
         // then
         Assert.assertFalse(phoneBook.hasEntry(name));
@@ -47,7 +47,7 @@ public class RemoveTest {
         Assert.assertTrue(phoneBook.hasEntry(phoneNumber));
 
         // when
-        phoneBook.remove(name);
+       // phoneBook.remove(name);
 
         // then
         Assert.assertFalse(phoneBook.hasEntry(name));

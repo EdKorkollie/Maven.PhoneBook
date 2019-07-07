@@ -1,45 +1,85 @@
 package com.zipcodewilmington.phonebook;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by leon on 1/23/18.
  */
 public class PhoneBook {
+
+    Map<String, List<String>> myBook;
+
     public PhoneBook(Map<String, List<String>> map) {
+
+        this.myBook = map;
     }
 
     public PhoneBook() {
-        this(null);
+
+        
     }
+
+
+
+
 
     public void add(String name, String phoneNumber) {
+
+            List<String> list = new ArrayList<>();
+            list.add(phoneNumber);
+            this.myBook.put(name, list);
     }
+
 
     public void addAll(String name, String... phoneNumbers) {
+
+       this.myBook.put(name, Arrays.asList(phoneNumbers));
+
+
     }
 
-    public void remove(String name) {
+    public void remove(String name, String phoneNumber) {
+
+        this.myBook.remove(name);
+
+
+
     }
 
     public Boolean hasEntry(String name) {
-        return null;
+
+        return this.myBook.containsKey(findPhoneBookEntry(name));
     }
 
     public List<String> lookup(String name) {
-        return null;
+
+        return this.myBook.get(name);
     }
 
     public String reverseLookup(String phoneNumber)  {
-        return null;
+
+        return findPhoneBookEntry(phoneNumber);
     }
 
     public List<String> getAllContactNames() {
-        return null;
+
+
+        return new ArrayList(this.myBook.keySet());
     }
 
     public Map<String, List<String>> getMap() {
-        return null;
+
+        return this.myBook;
+    }
+
+    public String findPhoneBookEntry(String str) {
+        for(Map.Entry<String, List<String>> entry:myBook.entrySet()) {
+            for(String pb: entry.getValue()) {
+                if(str.equals(pb)) {
+                    return entry.getKey();
+                }
+            }
+        }
+        return str;
     }
 }
